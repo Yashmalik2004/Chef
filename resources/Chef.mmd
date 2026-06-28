@@ -1,0 +1,19 @@
+---
+config:
+  flowchart:
+    curve: linear
+  layout: elk
+  look: neo
+  theme: default
+---
+flowchart LR
+    __start__(["<p>__start__</p>"]) --> planner("planner")
+    architect("architect") --> coder("coder")
+    coder -. &nbsp;END&nbsp; .-> __end__(["<p>__end__</p>"])
+    planner --> architect
+    coder -.-> coder
+     __start__:::first
+     __end__:::last
+    classDef default line-height:1.2
+    classDef first fill-opacity:0
+    classDef last fill:#bfb6fc

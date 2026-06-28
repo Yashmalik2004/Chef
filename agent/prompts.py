@@ -7,6 +7,7 @@ User request:
     """
     return PLANNER_PROMPT
 
+
 def architect_prompt(plan: str) -> str:
     ARCHITECT_PROMPT = f"""
 You are the ARCHITECT agent. Given this project plan, break it down into explicit engineering tasks.

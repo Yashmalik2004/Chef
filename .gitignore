@@ -9,3 +9,16 @@ wheels/
 # Virtual environments
 .venv
 .env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# System files
+.DS_Store
