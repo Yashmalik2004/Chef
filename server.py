@@ -21,12 +21,23 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 
+import os
+
 # ── App setup ────────────────────────────────────────────────────────────────
 app = FastAPI(title="CHEF AI Server", version="1.0.0")
 
+# Allow FRONTEND_URL env var (set on Render), fallback to localhost for dev
+_allowed_origins = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+]
+_frontend_url = os.getenv("FRONTEND_URL")
+if _frontend_url:
+    _allowed_origins.append(_frontend_url)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000", "*"],
+    allow_origins=_allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
