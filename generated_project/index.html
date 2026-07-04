@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div id="calculator" tabindex="0">
+        <div id="display" class="display" aria-live="polite"></div>
+        <div class="keypad">
+            <!-- Numbers -->
+            <button class="btn number" data-action="7">7</button>
+            <button class="btn number" data-action="8">8</button>
+            <button class="btn number" data-action="9">9</button>
+            <button class="btn operator" data-action="divide">÷</button>
+
+            <button class="btn number" data-action="4">4</button>
+            <button class="btn number" data-action="5">5</button>
+            <button class="btn number" data-action="6">6</button>
+            <button class="btn operator" data-action="multiply">×</button>
+
+            <button class="btn number" data-action="1">1</button>
+            <button class="btn number" data-action="2">2</button>
+            <button class="btn number" data-action="3">3</button>
+            <button class="btn operator" data-action="subtract">−</button>
+
+            <button class="btn number" data-action="0">0</button>
+            <button class="btn number" data-action="decimal">.</button>
+            <button class="btn equals" data-action="equals">=</button>
+            <button class="btn operator" data-action="add">+</button>
+
+            <!-- Utility buttons -->
+            <button class="btn clear" data-action="clear">C</button>
+            <button class="btn backspace" data-action="backspace">←</button>
+        </div>
+    </div>
+</body>
+</html>

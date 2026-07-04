@@ -1,0 +1,39 @@
+Chef Project Summary
+
+Chef is an AI-powered software engineer assistant. The user gives it a natural-language request, and the system turns that request into a project plan, implementation tasks, and generated code. It works like a multi-agent workflow with planner, architect, and coder steps powered by LangGraph and a Groq-hosted language model.
+
+What the project does:
+- Accepts a software-building request from the user.
+- Converts the request into a structured plan.
+- Breaks the plan into implementation tasks.
+- Uses tools to read and write project files.
+- Generates a complete application inside a workspace folder.
+
+Tech stack used:
+- Python 3.11+
+- LangGraph
+- LangChain
+- LangChain Groq
+- Groq LLM API
+- Pydantic
+- python-dotenv
+- uv
+
+Project structure:
+- main.py: command-line entrypoint.
+- agent/: contains the planner, architect, coder workflow, prompts, states, and tools.
+- resources/: contains project diagrams and assets.
+- pyproject.toml: dependency and project configuration.
+
+In short, Chef is designed to take a request like "build a calculator app" and automate the process of planning and creating the project.
+
+How the project works:
+1. The user enters a software request.
+2. The app sends that request into the LangGraph workflow.
+3. The planner agent converts the request into a structured project plan.
+4. The architect agent turns the plan into step-by-step implementation tasks.
+5. The coder agent executes those tasks, reading and writing files as needed.
+6. The workflow continues until the full project has been generated.
+7. The result is saved in the generated project output folder.
+
+In the newer web version, the user will type the request into a browser interface instead of the terminal. The frontend sends the prompt to the backend API, and the backend streams progress updates back to the UI so the user can watch the project being cooked in real time.

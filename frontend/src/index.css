@@ -1,0 +1,166 @@
+/* ── Google Fonts ──────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+/* ── Design Tokens ────────────────────────────────────────────────────── */
+:root {
+  --bg-primary:    #0B0F19;
+  --bg-secondary:  #111827;
+  --bg-tertiary:   #1a2233;
+  --accent:        #00E5FF;
+  --accent-dim:    rgba(0, 229, 255, 0.15);
+  --accent-glow:   rgba(0, 229, 255, 0.4);
+  --success:       #22C55E;
+  --warning:       #F59E0B;
+  --error:         #EF4444;
+  --text:          #E5E7EB;
+  --text-muted:    #94A3B8;
+  --border:        rgba(255,255,255,0.07);
+  --glass-bg:      rgba(17, 24, 39, 0.6);
+  --glass-border:  rgba(0, 229, 255, 0.1);
+}
+
+/* ── Base Reset ───────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,229,255,0.2); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,229,255,0.4); }
+
+/* ── Glassmorphism utility ────────────────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+}
+
+/* ── Glow effects ────────────────────────────────────────────────────── */
+.glow-accent {
+  box-shadow: 0 0 20px var(--accent-glow), 0 0 60px rgba(0,229,255,0.1);
+}
+.glow-success {
+  box-shadow: 0 0 20px rgba(34,197,94,0.4);
+}
+.text-glow {
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* ── Terminal font ───────────────────────────────────────────────────── */
+.font-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+}
+.font-display {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* ── Blink animation ─────────────────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* ── Thinking status text glow ────────────────────────────────────────── */
+@keyframes thinking-pulse {
+  0%, 100% { text-shadow: 0 0 10px var(--accent-glow); }
+  50% { text-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(0,229,255,0.2); }
+}
+.thinking-glow {
+  animation: thinking-pulse 2s ease-in-out infinite;
+}
+
+/* ── Progress bar shimmer ─────────────────────────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.progress-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    rgba(0,229,255,0.8) 25%,
+    var(--accent) 50%,
+    rgba(0,229,255,0.8) 75%,
+    var(--accent) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* ── Particle canvas ─────────────────────────────────────────────────── */
+.particle-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Terminal line enter animation ───────────────────────────────────── */
+@keyframes termLine {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.term-line {
+  animation: termLine 0.18s ease-out forwards;
+}
+
+/* ── Card hover lift ─────────────────────────────────────────────────── */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,229,255,0.12);
+}
+
+/* ── Button glow hover ────────────────────────────────────────────────── */
+.btn-accent {
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+.btn-accent:hover {
+  box-shadow: 0 0 20px var(--accent-glow), 0 0 40px rgba(0,229,255,0.2);
+  transform: scale(1.02);
+}
+.btn-accent:active {
+  transform: scale(0.98);
+}
+
+/* ── Selection ───────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(0,229,255,0.2);
+  color: #fff;
+}
+
+/* ── Mobile overflow ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  html, body, #root {
+    overflow: auto;
+  }
+}
