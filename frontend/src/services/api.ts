@@ -1,4 +1,5 @@
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8000';
+const WS_BASE  = import.meta.env.VITE_WS_URL  ?? 'ws://localhost:8000';
 
 export const api = {
   async downloadProject(): Promise<void> {
@@ -33,4 +34,4 @@ export const api = {
   },
 };
 
-export const WS_URL = 'ws://localhost:8000/ws';
+export const WS_URL = `${WS_BASE}/ws`;
