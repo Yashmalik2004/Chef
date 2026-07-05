@@ -256,6 +256,11 @@ async def websocket_endpoint(websocket: WebSocket):
 
 
 # ── REST endpoints ────────────────────────────────────────────────────────────
+@app.get("/")
+async def root():
+    return {
+        "message": "CHEF AI Backend is running"
+    }
 
 @app.get("/files")
 async def list_generated_files():
