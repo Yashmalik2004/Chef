@@ -36,6 +36,8 @@ html, body, #root {
 
 body {
   font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
   background-color: var(--bg-primary);
   color: var(--text);
   -webkit-font-smoothing: antialiased;

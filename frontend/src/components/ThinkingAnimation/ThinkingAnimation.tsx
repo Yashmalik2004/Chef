@@ -65,15 +65,15 @@ export default function ThinkingAnimation({ currentStatus, phase }: ThinkingAnim
       <ParticleCanvas active={true} />
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center gap-8 px-6 text-center">
+      <div className="relative z-10 flex flex-col items-center gap-10 px-6 text-center max-w-2xl">
         {/* Animated CPU icon */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
           className="relative"
         >
-          <div className="w-16 h-16 rounded-2xl bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center glow-accent">
-            <Cpu size={28} className="text-[#00E5FF]" />
+            <div className="w-20 h-20 rounded-[1.5rem] bg-[#00E5FF]/10 border border-[#00E5FF]/30 flex items-center justify-center glow-accent">
+              <Cpu size={32} className="text-[#00E5FF]" />
           </div>
           {/* Orbiting dot */}
           <motion.div
@@ -89,8 +89,8 @@ export default function ThinkingAnimation({ currentStatus, phase }: ThinkingAnim
         </motion.div>
 
         {/* Phase label */}
-        <div className="flex items-center gap-2">
-          <span className="text-xs text-[#94A3B8] uppercase tracking-widest font-semibold">
+        <div className="flex items-center gap-3 flex-wrap justify-center">
+          <span className="text-xs md:text-sm text-[#94A3B8] uppercase tracking-widest font-semibold">
             {phase === 'connecting' ? 'Connecting' : 'AI Agents Active'}
           </span>
           <span className="flex gap-0.5">
@@ -106,7 +106,7 @@ export default function ThinkingAnimation({ currentStatus, phase }: ThinkingAnim
         </div>
 
         {/* Status message with crossfade */}
-        <div className="h-10 flex items-center justify-center">
+        <div className="min-h-12 flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.p
               key={displayStatus}
@@ -114,7 +114,7 @@ export default function ThinkingAnimation({ currentStatus, phase }: ThinkingAnim
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.45, ease: 'easeInOut' }}
-              className="thinking-glow font-mono text-lg text-[#00E5FF] font-medium"
+              className="thinking-glow font-mono text-xl text-[#00E5FF] font-medium"
             >
               {displayStatus}
               <motion.span
@@ -127,7 +127,7 @@ export default function ThinkingAnimation({ currentStatus, phase }: ThinkingAnim
         </div>
 
         {/* Three-column agent indicators */}
-        <div className="flex gap-6">
+        <div className="flex gap-8 flex-wrap justify-center">
           {['Planner', 'Architect', 'Coder'].map((agent, i) => (
             <motion.div
               key={agent}

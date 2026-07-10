@@ -22,26 +22,26 @@ export default function Header({ phase, wsStatus, sidebarOpen, onToggleSidebar }
   const isOnline = wsStatus === 'connected';
 
   return (
-    <header className="flex items-center justify-between px-4 py-3 border-b border-white/5 glass shrink-0 z-20">
-      <div className="flex items-center gap-3">
+    <header className="flex items-center justify-between px-7 py-5 md:px-10 md:py-6 border-b border-white/5 glass shrink-0 z-20">
+      <div className="flex items-center gap-5">
         <button
           id="header-toggle-sidebar"
           onClick={onToggleSidebar}
-          className="p-1.5 rounded-md text-[#94A3B8] hover:text-white hover:bg-white/5 transition-all"
+          className="p-3 rounded-xl text-[#94A3B8] hover:text-white hover:bg-white/5 transition-all"
           title={sidebarOpen ? 'Close sidebar' : 'Open sidebar'}
         >
           <Menu size={18} />
         </button>
-        <div className="flex items-center gap-2">
-          <ChefHat size={16} className="text-[#00E5FF]" />
-          <span className="font-display font-bold text-white text-sm">CHEF</span>
-          <span className="text-[#94A3B8] text-xs">/ AI Software Engineer</span>
+        <div className="flex items-center gap-3">
+          <ChefHat size={22} className="text-[#00E5FF]" />
+          <span className="font-display font-bold text-white text-xl tracking-wide">CHEF</span>
+          <span className="text-[#94A3B8] text-sm md:text-base hidden sm:inline">/ AI Software Engineer</span>
         </div>
       </div>
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-5">
         {/* Phase indicator */}
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/5 bg-white/[0.02]">
+        <div className="flex items-center gap-2.5 px-5 py-3 rounded-full border border-white/5 bg-white/[0.02]">
           <motion.span
             key={phase}
             animate={{ scale: [1, 1.2, 1], opacity: [0.6, 1, 0.6] }}

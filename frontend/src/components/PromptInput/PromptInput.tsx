@@ -44,7 +44,7 @@ export default function PromptInput({ onSubmit, disabled = false }: PromptInputP
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full max-w-5xl mx-auto">
       {/* Main Prompt Box */}
       <motion.div
         animate={{
@@ -53,7 +53,7 @@ export default function PromptInput({ onSubmit, disabled = false }: PromptInputP
             : '0 0 0 1px rgba(255,255,255,0.07)',
         }}
         transition={{ duration: 0.2 }}
-        className="relative rounded-2xl overflow-hidden glass"
+        className="relative rounded-[1.5rem] sm:rounded-[2rem] overflow-hidden glass"
       >
         {/* Textarea */}
         <textarea
@@ -67,15 +67,15 @@ export default function PromptInput({ onSubmit, disabled = false }: PromptInputP
           disabled={disabled}
           placeholder="What would you like to build today?"
           rows={3}
-          className="w-full bg-transparent resize-none px-5 pt-4 pb-2 text-[#E5E7EB] placeholder-[#94A3B8]/50 text-sm leading-relaxed focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
-          style={{ minHeight: '80px', maxHeight: '200px' }}
+          className="w-full bg-transparent resize-none px-5 sm:px-8 pt-5 sm:pt-7 pb-4 sm:pb-5 text-base sm:text-lg md:text-xl leading-relaxed focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+          style={{ minHeight: '120px', maxHeight: '320px' }}
         />
 
         {/* Bottom bar */}
-        <div className="flex items-center justify-between px-4 pb-3">
-          <div className="flex items-center gap-2">
-            <Sparkles size={13} className="text-[#94A3B8]" />
-            <span className="text-[11px] text-[#94A3B8]">
+        <div className="flex flex-col gap-4 px-5 pb-5 sm:px-7 sm:pb-6 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-start gap-3">
+            <Sparkles size={16} className="text-[#94A3B8] shrink-0 mt-0.5" />
+            <span className="text-xs sm:text-sm md:text-base text-[#94A3B8] leading-relaxed">
               Press <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono">Enter</kbd> to generate · <kbd className="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono">Shift+Enter</kbd> for newline
             </span>
           </div>
@@ -85,7 +85,7 @@ export default function PromptInput({ onSubmit, disabled = false }: PromptInputP
             disabled={disabled || !value.trim()}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="btn-accent flex items-center gap-2 px-4 py-2 rounded-xl text-sm disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none"
+            className="btn-accent flex items-center gap-2 px-6 sm:px-7 py-3 rounded-[1.35rem] text-sm sm:text-base disabled:opacity-40 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none self-start md:self-auto w-full md:w-auto justify-center"
           >
             <span>Generate</span>
             <Send size={13} />
@@ -94,13 +94,13 @@ export default function PromptInput({ onSubmit, disabled = false }: PromptInputP
       </motion.div>
 
       {/* Example prompts */}
-      <div className="mt-4 flex flex-wrap gap-2 justify-center">
+      <div className="mt-6 flex flex-wrap gap-2.5 sm:gap-3 justify-center sm:justify-start">
         {EXAMPLE_PROMPTS.map((p) => (
           <button
             key={p}
             onClick={() => !disabled && setValue(p)}
             disabled={disabled}
-            className="text-[11px] px-3 py-1.5 rounded-full border border-white/5 text-[#94A3B8] hover:text-[#00E5FF] hover:border-[#00E5FF]/30 hover:bg-[#00E5FF]/5 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+            className="text-[11px] sm:text-[12px] px-4 sm:px-5 py-2.5 rounded-full border border-white/5 text-[#94A3B8] hover:text-[#00E5FF] hover:border-[#00E5FF]/30 hover:bg-[#00E5FF]/5 transition-all disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {p}
           </button>

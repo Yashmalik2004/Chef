@@ -21,7 +21,7 @@ export default function ProgressBar({ phase, percent }: ProgressBarProps) {
   return (
     <div className="w-full">
       {/* Phase label + percentage */}
-      <div className="flex items-center justify-between mb-2.5">
+      <div className="flex items-center justify-between mb-4">
         <span className="text-[11px] font-semibold text-[#00E5FF] uppercase tracking-widest">
           {currentPhaseObj.label}
         </span>
@@ -29,7 +29,7 @@ export default function ProgressBar({ phase, percent }: ProgressBarProps) {
       </div>
 
       {/* Phase chips */}
-      <div className="flex items-center gap-1 flex-wrap mb-3">
+      <div className="flex items-center gap-2.5 flex-wrap mb-4">
         {PHASES.map((p) => {
           const done = clampedPct >= p.pct;
           const active = p.key === phase;

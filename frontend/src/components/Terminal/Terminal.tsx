@@ -59,7 +59,7 @@ export default function Terminal({ lines }: TerminalProps) {
   return (
     <div className="flex flex-col h-full">
       {/* Terminal header */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/5 shrink-0">
+      <div className="flex items-center justify-between px-5 sm:px-7 py-[18px] border-b border-white/5 shrink-0">
         <div className="flex items-center gap-2">
           {/* Traffic lights */}
           <span className="w-2.5 h-2.5 rounded-full bg-[#EF4444]/70" />
@@ -69,9 +69,9 @@ export default function Terminal({ lines }: TerminalProps) {
             Terminal
           </span>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4 sm:gap-5">
           {/* Color legend */}
-          <div className="flex items-center gap-2.5">
+          <div className="hidden sm:flex items-center gap-4">
             {Object.entries(AGENT_COLORS).map(([agent, color]) => (
               <div key={agent} className="flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: color }} />
@@ -87,7 +87,7 @@ export default function Terminal({ lines }: TerminalProps) {
       <div
         ref={containerRef}
         onScroll={handleScroll}
-        className="flex-1 overflow-y-auto px-4 py-3 font-mono text-[11px] leading-relaxed bg-black/30"
+        className="flex-1 overflow-y-auto px-5 sm:px-7 py-5 sm:py-6 font-mono text-[11px] sm:text-[13px] leading-relaxed bg-black/30"
       >
         {lines.length === 0 ? (
           <div className="flex flex-col items-start gap-1 text-[#94A3B8]/50">
@@ -104,14 +104,14 @@ export default function Terminal({ lines }: TerminalProps) {
             {lines.map((line) => {
               const style = getLineStyle(line);
               return (
-                <div key={line.id} className="term-line flex gap-2 mb-0.5 group">
+                <div key={line.id} className="term-line flex gap-2 sm:gap-4 mb-2 group">
                   {/* Timestamp */}
-                  <span className="text-[#94A3B8]/30 shrink-0 select-none">
+                  <span className="hidden sm:inline text-[#94A3B8]/30 shrink-0 select-none">
                     {formatTimestamp(line.timestamp)}
                   </span>
                   {/* Agent prefix */}
                   <span
-                    className="shrink-0 font-semibold min-w-[60px]"
+                    className="shrink-0 font-semibold min-w-[62px] sm:min-w-[88px]"
                     style={{ color: style.prefixColor }}
                   >
                     [{style.prefix}]
