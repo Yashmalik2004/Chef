@@ -63,7 +63,6 @@ def estimate_progress(logs: list[str]) -> tuple[str, int]:
     """Estimate phase and progress % from collected log lines."""
     text = " ".join(logs).lower()
 
-    # Count distinct phases detected
     has_planner = any("planner" in l.lower() for l in logs)
     has_architect = any("architect" in l.lower() for l in logs)
     has_coder = any("coder" in l.lower() or "wrote:" in l.lower() for l in logs)
